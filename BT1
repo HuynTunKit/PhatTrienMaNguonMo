@@ -1,0 +1,164 @@
+Câu 1 : 
+<?php
+echo "Câu 1:";
+echo "<br>";
+$n = -5;
+$absoluteValue = abs($n);
+echo "Giá trị tuyệt đối của $n là: $absoluteValue";
+?>
+
+
+
+Câu 2 : 
+
+<?php
+echo "Câu 2:";
+echo "<br>";
+$a = 15;
+$b = 4;
+$remainder = $a % $b;
+echo "Kết quả chia lấy phần dư của $a cho $b là: $remainder";
+?>
+
+
+Câu 3 :
+<?php
+echo "Câu 3:";
+echo "<br>";
+$fahrenheit = readline("Nhập vào nhiệt độ Fahrenheit: "); // Nhập nhiệt độ Fahrenheit từ người dùng
+
+$celsius = (5/9) * ($fahrenheit - 32); // Chuyển đổi nhiệt độ từ Fahrenheit sang Celsius
+
+echo "Nhiệt độ tương đương là: $celsius độ Celsius";
+?>
+
+
+Câu 4 :
+<?php
+echo "<br>";
+echo "Câu 4:";
+echo "<br>";
+$a = 2; // Hệ số a
+$b = 5; // Hệ số b
+
+// Kiểm tra giá trị của hệ số a
+if ($a == 0) {
+    if ($b == 0) {
+        echo "Phương trình có vô số nghiệm";
+    } else {
+        echo "Phương trình vô nghiệm";
+    }
+} else {
+    $x = -($b / $a);
+    echo "Nghiệm của phương trình là x = $x";
+}
+?>
+
+
+Câu 5 : 
+<?php
+echo "<br>";
+echo "Câu 5:";  
+echo "<br>";
+$a = 5; // Số nguyên a
+$b = 10; // Số nguyên b
+$c = 7; // Số nguyên c
+
+$maxValue = $a; // Giả sử a là giá trị lớn nhất ban đầu
+
+// So sánh b với giá trị lớn nhất hiện tại
+if ($b > $maxValue) {
+    $maxValue = $b;
+}
+
+// So sánh c với giá trị lớn nhất hiện tại
+if ($c > $maxValue) {
+    $maxValue = $c;
+}
+
+echo "Giá trị lớn nhất là: $maxValue";
+?>
+
+
+Câu 6 :
+<?php
+echo "<br>";
+echo "Câu 6:";  
+echo "<br>";
+$N = readline("Nhập vào số nguyên dương N có 2 chữ số: "); // Nhập số nguyên dương N từ người dùng
+
+// Kiểm tra xem N có đúng 2 chữ số hay không
+if ($N >= 10 && $N <= 99) {
+    $tensDigit = floor($N / 10); // Chữ số hàng chục
+    $onesDigit = $N % 10; // Chữ số hàng đơn vị
+
+    $sum = $tensDigit + $onesDigit; // Tổng các chữ số
+
+    echo "Tổng các chữ số của $N là: $sum";
+} else {
+    echo "Vui lòng nhập số nguyên dương N có 2 chữ số!";
+}
+?>
+
+Câu 7 :
+<?php
+function convertSeconds($seconds) {
+    $hours = floor($seconds / 3600);
+    $minutes = floor(($seconds % 3600) / 60);
+    $seconds = $seconds % 60;
+    return array($hours, $minutes, $seconds);
+}
+
+// Nhập thời gian tính bằng giây
+$inputSeconds = (int) readline("Nhập thời gian (s): ");
+
+// Chuyển đổi thời gian
+list($hours, $minutes, $seconds) = convertSeconds($inputSeconds);
+
+// In ra màn hình kết quả
+echo "Thời gian: " . $hours . " giờ, " . $minutes . " phút, " . $seconds . " giây";
+?>
+
+Câu 8 : 
+<?php
+function algorithm($n) {
+    $sequence = [$n];  // Lưu trữ chuỗi các giá trị N
+    
+    while ($n != 1) {
+        if ($n % 2 == 0) {  // Nếu N là số chẵn
+            $n = $n / 2;
+        } else {  // Nếu N là số lẻ
+            $n = $n * 3 + 1;
+        }
+        $sequence[] = $n;  // Thêm giá trị N vào chuỗi
+    }
+    
+    return $sequence;
+}
+
+// Nhập giá trị N
+$n = (int) readline("Nhập giá trị N: ");
+
+// Triển khai thuật toán và in ra chuỗi giá trị
+$sequence = algorithm($n);
+echo implode(" ", $sequence);
+?>
+
+Câu 9 : 
+<?php
+// Đọc dữ liệu đầu vào
+$n = (int) readline();
+$numbers = array_map('intval', explode(' ', readline()));
+
+// Tính tổng của dãy số từ 1 đến N
+$totalSum = ($n * ($n + 1)) / 2;
+
+// Tính tổng của các số đã cho
+$givenSum = array_sum($numbers);
+
+// Tìm số còn thiếu
+$missingNumber = $totalSum - $givenSum;
+
+// In ra số còn thiếu
+echo $missingNumber;
+?>
