@@ -1,0 +1,60 @@
+Câu 1 : 
+<?php
+
+// Tạo mảng chứa thông tin về sản phẩm
+$ds_san_pham = array(
+    array("tensp1" => "Sản phẩm 1", "gia" => 100, "so_luong" => 50),
+
+    array("tensp2" => "Sản phẩm 2", "gia" => 50, "so_luong" => 30),
+);
+
+
+//// Thêm mới sản phẩm
+$ds_san_pham_moi =  array("tensp3" => "Sản phẩm 3", "gia" => 100, "so_luong" => 50);
+$ds_san_pham[] = $ds_san_pham_moi;
+// Xóa sản phẩm.
+
+//unset($ds_san_pham[1]);
+
+
+
+/*
+// Tìm kiếm sản phẩm theo tên
+$searchProductName = "Sản phẩm 1";
+
+// Sử dụng array_search
+$key = array_search($searchProductName, array_column($ds_san_pham, 'tensp1'));
+
+if ($key !== false) {
+    echo "Sản phẩm có tên '$searchProductName' tồn tại trong mảng.";
+    // Hiển thị thông tin sản phẩm
+    $productInfo = $ds_san_pham[$key];
+    echo "Tên sản phẩm: {$productInfo['tensp1']}, Giá: {$productInfo['gia']}, Số lượng: {$productInfo['so_luong']}";
+} else {
+    echo "Sản phẩm có tên '$searchProductName' không tồn tại trong mảng.";
+    echo "<br>";
+} */
+// sắp xếp theo thứ tự tăng dần 
+usort($ds_san_pham, function ($a, $b) {
+    return $a['gia'] - $b['gia'];
+});
+
+// Hiển thị mảng sau khi sắp xếp
+echo "Sắp xếp theo giá tăng dần:\n";
+print_r($ds_san_pham);
+
+// sắp xếp theo giá giảm dần
+usort($ds_san_pham, function ($a, $b) {
+    return $b['gia'] - $a['gia'];
+});
+
+// Hiển thị mảng sau khi sắp xếp
+echo "Sắp xếp theo giá giảm dần:\n";
+print_r($ds_san_pham);
+/*
+// In thông tin về các sản phẩm trong mảng
+echo "Danh sách sản phẩm trong cửa hàng:\n";
+foreach ($ds_san_pham as $san_pham) {
+    echo "Tên: {$san_pham['ten']}, Giá: {$san_pham['gia']}, Số lượng: {$san_pham['so_luong']}\n";
+}
+*/
